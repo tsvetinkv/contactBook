@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@using ContactBook.Models.Enums
+@model ContactBook.Pages.EditContactModel
+@{
+    ViewData["Title"] = "EditContact";
+}
+
+
+@using (Html.BeginForm("Save", "Contact"))
+{
+    @Html.Label("FirstName", "First Name")
+    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
+
+    @Html.Label("MiddleName", "Middle Name")
+    @Html.TextBoxFor(c => c.MiddleName, new { @class = "form-control" })
+
+    @Html.Label("LastName", "Last Name")
+    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+
+    @Html.Label("Age", "Age")
+    @Html.TextBoxFor(c => c.Age, new { @class = "form-control" })
+
+    @Html.Label("Email", "Email")
+    @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+
+    @Html.Label("GenderTypes", "Gender Type")
+    @Html.DropDownListFor(c => c.Gender, new SelectList(Enum.GetValues(typeof(GenderTypes))), new
+    {
+    @class = "form-control"
+    })
+    <input type="submit" value="Submit" />
+    <input type="submit" asp-page-handler="Cancel" value="Cancel" />
+}
+

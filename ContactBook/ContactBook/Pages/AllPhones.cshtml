@@ -1,0 +1,43 @@
+﻿@page "{id:int}"
+@model ContactBook.Pages.AllPhonesModel
+@{
+    ViewData["Tittle"] = "AllPhones";
+}
+
+<h1>Phones</h1>
+<p>
+    <a asp-page="./AddPhone" asp-route-ID="@Model.HttpContext.Request.Path.ToString().Split("/")[2]">Add Phone</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Phones[0].Number)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Phones[0].Type)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Phones)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                <a asp-page="./EditPhone" asp-route-ID="@item.ID">Edit</a> |
+                <a asp-page-handler="Delete" asp-route-ID="@item.ID" asp-route-contactID="@item.ContactID" onclick="return confirm('Are you shure you want to delete?')">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,31 @@
+﻿@page
+@using ContactBook.Models.Enums
+@model contactbook.Pages.AddContactModel
+@{
+    ViewData["Title"] = "AddContact";
+}
+@using (Html.BeginForm("Save", "Contacts"))
+{
+    @Html.Label("Firstname", "First Name")
+    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
+
+    @Html.Label("Middlename", "Middle Name")
+    @Html.TextBoxFor(c => c.MiddleName, new { @class = "form-control" })
+
+    @Html.Label("Lastname", "Last Name")
+    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+
+    @Html.Label("Age", "Age")
+    @Html.TextBoxFor(c => c.Age, new { @class = "form-control" })
+
+    @Html.Label("Email", "Email")
+    @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+
+    @Html.Label("GenderTypes", "Gender Type")
+    @Html.DropDownListFor(c => c.Gender, new SelectList(Enum.GetValues(typeof(GenderTypes))), new
+    {
+    @class = "form-control"
+    })
+    <input type="Submit">
+
+}

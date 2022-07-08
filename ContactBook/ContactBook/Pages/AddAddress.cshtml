@@ -1,0 +1,24 @@
+﻿@page "{id:int}"
+@model ContactBook.Pages.AddAddressModel
+@{
+    ViewData["Title"] = "AddAddress";
+}
+@using (Html.BeginForm("Save", "Address"))
+{
+    @Html.Label("Country", "Country")
+    @Html.TextBoxFor(c => c.Country, new { @class = "form-control" })
+
+    @Html.Label("PostCode", "Post Code")
+    @Html.TextBoxFor(c => c.PostCode, new { @class = "form-control" })
+
+    @Html.Label("City", "City")
+    @Html.TextBoxFor(c => c.City, new { @class = "form-control" })
+
+    @Html.Label("StreetName", "Street name")
+    @Html.TextBoxFor(c => c.StreetName, new { @class = "form-control" })
+
+    @Html.Label("StreetNumber", "Street number")
+    @Html.TextBoxFor(c => c.StreetNumber, new { @class = "form-control" })
+<input type="Submit">
+}
+

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mappers\NewFolder\**" />
+    <Content Remove="Mappers\NewFolder\**" />
+    <EmbeddedResource Remove="Mappers\NewFolder\**" />
+    <None Remove="Mappers\NewFolder\**" />
+  </ItemGroup>
+
+</Project>

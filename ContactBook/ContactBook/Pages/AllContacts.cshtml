@@ -1,0 +1,83 @@
+﻿@page
+@model ContactBook.Pages.AllContactsModel
+@{
+    ViewData["Tittle"] = "AllContacts";
+}
+<h1>Contacts</h1>
+<p>
+    <a asp-page="AddContact">Add Contact</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+                
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].FirstName)
+            </th>
+       
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].MiddleName)
+            </th>
+       
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].LastName)
+            </th>
+        
+      
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].Age)
+            </th>
+       
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].Email)
+            </th>
+       
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Contacts[0].Gender)
+            </th>
+            <th>
+
+            </th>
+            </tr>
+        
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Contacts)
+        {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                <a asp-page="./AllPhones" asp-route-ID="@item.ID">Phones</a> |
+                <a asp-page="./AllAddresess" asp-route-ID="@item.ID">Addreses</a> |
+                <a asp-page-handler="Delete" asp-route-ID="@item.ID" onclick="return confirm('Are you shure you want to delete?')">Delete</a> |
+                <a asp-page="./EditContact" asp-route-ID="@item.ID">Edit</a> 
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

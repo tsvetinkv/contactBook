@@ -1,0 +1,23 @@
+﻿@page "{id:int}"
+@using ContactBook.Models.Enums
+@model ContactBook.Pages.EditPhoneModel
+@{
+    ViewData["Title"] = "EditPhone";
+    //<a href="C:\Users\PC\source\repos\ContactBook\ContactBook\Pages\EditPhone.cshtml">C:\Users\PC\source\repos\ContactBook\ContactBook\Pages\EditPhone.cshtml</a>
+}
+
+@using (Html.BeginForm("Save", "Phone"))
+{
+
+
+    @Html.Label("Number", "Number")
+    @Html.TextBoxFor(c => c.Number, new { @class = "form-control" })
+
+    @Html.Label("TypePhones", "Type Phone")
+    @Html.DropDownListFor(c => c.Type, new SelectList(Enum.GetValues(typeof(TypePhones))), new
+    {
+    @class = "form-control"
+    })
+    <input type="submit" value="Submit" />
+    <input type="submit" asp-page-handler="Cancel" value="Cancel" />
+}

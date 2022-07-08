@@ -1,0 +1,73 @@
+﻿@page  "{id:int}"
+@model ContactBook.Pages.AllAddresessModel
+@{
+    ViewData["Tittle"] = "AllAddresess";
+}
+<h1>Addresess</h1>
+<p>
+    <a asp-page="./AddAddress" asp-route-ID="@Model.HttpContext.Request.Path.ToString().Split("/")[2]">Add Address</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].Country)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].PostCode)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].City)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].StreetName)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].StreetNumber)
+            </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Address)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetNumber)
+            </td>
+
+          
+            <td>
+                <a asp-page="./EditAddress" asp-route-ID="@item.ID">Edit</a> |
+                <a asp-page-handler="Delete" asp-route-ID="@item.ID" asp-route-contactID="@item.ContactID" onclick="return confirm('Are you shure you want to delete?')">Delete</a>
+
+            </td>
+        </tr>
+         
+        }
+    </tbody>
+</table>

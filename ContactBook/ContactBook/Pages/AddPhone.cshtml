@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@using ContactBook.Models.Enums
+@model ContactBook.Pages.AddPhoneModel
+@{
+    ViewData["Title"] = "AddPhone";
+}
+@using (Html.BeginForm("Save", "Phone"))
+{
+
+
+    @Html.Label("Number", "Number")
+    @Html.TextBoxFor(c => c.Number, new { @class = "form-control" })
+
+    @Html.Label("TypePhones", "Type Phone")
+    @Html.DropDownListFor(c => c.Type, new SelectList(Enum.GetValues(typeof(TypePhones))), new
+    {
+    @class = "form-control"
+    })
+<input type="Submit">
+}
+
+
