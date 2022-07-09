@@ -1,0 +1,7 @@
+2/Bulgaria/3000/sofia/street/59/1
+6/Bulgaria/3000/Враца/околчица/18/5
+7/Bulgaria/3000/Враца/мутница/23/4
+8/Bulgaria/3000/Враца/мътница/23/4
+9/Bulgaria/3000/Враца/мътница/23/4
+11/Bulgaria/4593/rtvbn/rvghbjn/212/1
+12/Country/1234/City/Name/36/6
